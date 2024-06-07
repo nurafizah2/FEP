@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event Paragraph</title>
+    <style>
+     
+        p {
+            padding: 20px;
+            border: 1px solid black;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+   
+    <p id="myParagraph">This is a paragraph.</p>
+
+    <!-- JavaScript to handle mouse events and change paragraph color -->
+    <script>
+        // Get the paragraph element
+        var paragraph = document.getElementById("myParagraph");
+
+        // Change background color on click to yellow
+        paragraph.onclick = function() {
+            this.style.backgroundColor = "yellow";
+        };
+
+        // Change background color on double click to blue
+        paragraph.ondblclick = function() {
+            this.style.backgroundColor = "blue";
+        };
+
+        // Change background color on mouseover to red
+        paragraph.onmouseover = function() {
+            this.style.backgroundColor = "red";
+        };
+
+        // Change background color on mouseout to green
+        paragraph.onmouseout = function() {
+            this.style.backgroundColor = "green";
+        };
+    </script>
+</body>
+</html>

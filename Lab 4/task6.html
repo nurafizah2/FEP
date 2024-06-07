@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animation</title>
+<style>
+  #container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    border: 2px solid black;
+  }
+
+  .square {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+  }
+
+  #square1 {
+    background-color: blue;
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <div class="square" id="square1"></div>
+  <div class="square" id="square2"></div>
+</div>
+
+<button id="startButton">Start</button>
+<button id="stopButton">Stop</button>
+
+<script>
+  let animationInterval;
+  const container = document.getElementById('container');
+  const square1 = document.getElementById('square1');
+  const square2 = document.getElementById('square2');
+  const startButton = document.getElementById('startButton');
+  const stopButton = document.getElementById('stopButton');
+
+  function moveSquare(square) {
+    const containerWidth = container.offsetWidth - square.offsetWidth;
+    const containerHeight = container.offsetHeight - square.offsetHeight;
+    const randomX = Math.floor(Math.random() * containerWidth);
+    const randomY = Math.floor(Math.random() * containerHeight);
+    square.style.left = randomX + 'px';
+    square.style.top = randomY + 'px';
+  }
+
+  function startAnimation() {
+    animationInterval = setInterval(() => {
+      moveSquare(square1);
+      moveSquare(square2);
+    }, 1000);
+    startButton.disabled = true;
+    stopButton.disabled = false;
+  }
+
+  function stopAnimation() {
+    clearInterval(animationInterval);
+    startButton.disabled = false;
+    stopButton.disabled = true;
+  }
+
+  startButton.addEventListener('click', startAnimation);
+  stopButton.addEventListener('click', stopAnimation);
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Field Effects</title>
+    <style>
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            transition: border-color 0.3s ease;
+        }
+
+        .focus {
+            border-color: blue;
+        }
+
+        .blur {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="myTextField" placeholder="Enter text here">
+
+    <!-- JavaScript to handle events and apply effects -->
+    <script>
+        // Get the text field element
+        var textField = document.getElementById("myTextField");
+
+        // Apply effect on change event
+        textField.onchange = function() {
+            // Add class to apply effect
+            this.classList.add("blur");
+        };
+
+        // Apply effect on focus event
+        textField.onfocus = function() {
+            // Add class to apply effect
+            this.classList.add("focus");
+            // Remove class for blur effect if it was applied previously
+            this.classList.remove("blur");
+        };
+
+        // Apply effect on blur event
+        textField.onblur = function() {
+            // Add class to apply effect
+            this.classList.add("blur");
+            // Remove class for focus effect if it was applied previously
+            this.classList.remove("focus");
+        };
+    </script>
+</body>
+</html>
